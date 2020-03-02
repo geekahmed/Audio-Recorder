@@ -2,6 +2,8 @@ package com.geekahmed.audiorecorder;
 
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -18,9 +20,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -113,7 +117,6 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     }
     private void stopRecording() {
         timer.stop();
-        fileNameText.setText("Recording Stopped, File Saved : " + recordFile);
         mediaRecorder.stop();
         mediaRecorder.release();
         mediaRecorder = null;
